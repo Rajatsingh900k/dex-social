@@ -23,9 +23,9 @@ dex-social/
 ├── .prettierignore
 ├── .prettierrc
 ├── .gitkeep
-├── app.js
+├── app.js (Server & configuration)
 ├── constants.js
-├── index.js
+├── index.js (Entry Point)
 ├── package-lock.json
 ├── package.json
 └── README.md
