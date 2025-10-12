@@ -3,6 +3,7 @@
 A complete fullstack project.
 This app has functionality of major social media apps like ```x.com``` and ```youtube``` in a single platform.
 
+
 ## File Structure of professional projects.
 
 The professional level backend structure :- 
@@ -56,3 +57,28 @@ dex-social/
 6. ```constanst.js``` :- Stores global constants used across your app.
 7. ```index.js``` :- The main entry point. Starts your server and connects to the database.
 8. ```package.json / package-lock.json``` :- Define your project dependencies, scripts, and metadata. package.json is editable. package-lock.json is auto-generated (locks exact dependency versions).
+
+
+## Packages Used:-
+
+1. dependencies:- 
+
+```bash
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "mongoose": "^8.19.1"
+    "mongoose-aggregate-paginate": "^2.0.2"
+    "jsonwebtoken": "^9.0.2"
+    "bcrypt": "^6.0.0"
+```
+
+2. dev-dependencies:-
+
+```bash
+    "nodemon": "^3.1.10",
+    "prettier": "^3.6.2"
+```
+
+### Need of above mentioned dependencies
