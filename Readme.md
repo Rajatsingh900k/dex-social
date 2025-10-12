@@ -1,12 +1,10 @@
 # Dex Social
 
-A complete fullstack project.
-This app has functionality of major social media apps like ```x.com``` and ```youtube``` in a single platform.
+A comprehensive fullstack social media platform that combines functionalities of popular platforms like `x.com` and `youtube`. The project follows professional-grade architecture and development practices.
 
+## Project Architecture
 
-## File Structure of professional projects.
-
-The professional level backend structure :- 
+### Root Directory Structure
 ```
 dex-social/
 ├── node_modules/
@@ -24,61 +22,163 @@ dex-social/
 ├── .prettierignore
 ├── .prettierrc
 ├── .gitkeep
-├── app.js (Server & configuration)
+├── app.js
 ├── constants.js
-├── index.js (Entry Point)
+├── index.js
 ├── package-lock.json
 ├── package.json
 └── README.md
 ```
-### Short Description of these directories :-
 
-### 1. Directory Structure :-
+### Directory Details
 
-1. ```Root directory (Dex Social here)``` :- This directory is the root directory, it contains all the backend code for the webApp, this code contains Database connection codes, node_modules, dependencies, other directories, etc.
-2. ```node_modules``` :- contains node modules.
-3. ```public``` :- This directory exists to store static or publicly accessible files.
-4. ```public/temp ``` :- This directory stores temperary data.
-5. ```src``` :- This is the main directory which contains all the application logic.
-6. ```controllers``` :- Contains functions that handle requests and responses.
-7. ```db``` :- Handles database connection logic.
-8. ```middlewares``` :- Stores middleware functions used in Express routes. These are functions that run before the controller.
-9. ```models``` :- Contains Mongoose schemas or database models.
-10. ```routes``` :- Stores all your API route definitions.
-11. ```utils``` :- Stores helper functions, reusable utilities, or services.
+#### Core Directories
+1. **Root Directory (`dex-social/`)**
+    - Main project container housing all files and directories
+    - Contains configuration files like package.json for npm dependencies
+    - Includes dotenv files for environment variables
+    - Houses core application files like app.js and index.js
 
-### 2. File Structure :-
+2. **Source Directory (`src/`)**
+    - Central location for all application source code
+    - Implements MVC (Model-View-Controller) architecture
+    - Contains modular components separated by functionality
+    - Houses business logic, data models, and routing logic
 
-1. ```.env``` :- Stores environment variables like DB credentials, API keys, and secrets.
-2. ```.prettierignore``` :- Used by Prettier, a code formatter. .prettierignore contains files/folders Prettier should skip.
-3. ```.gitignore``` :- Contains files and folders which must node be push to git.
-4. ```.gitkeep``` :- Empty file used to force Git to track empty folders (Git normally ignores them).
-5. ```app.js``` :- Defines and configures your Express app. Registers middlewares, routes, and error handlers. Usually exported to be used in index.js.
-6. ```constanst.js``` :- Stores global constants used across your app.
-7. ```index.js``` :- The main entry point. Starts your server and connects to the database.
-8. ```package.json / package-lock.json``` :- Define your project dependencies, scripts, and metadata. package.json is editable. package-lock.json is auto-generated (locks exact dependency versions).
+3. **Public Directory (`public/`)**
+    - Dedicated to static file serving
+    - Contains temporary file storage in `temp/` directory
+    - Handles user uploads and media files
+    - Serves client-accessible resources
 
+#### Source Code Organization
 
-## Packages Used:-
+1. **Controllers (`src/controllers/`)**
+    - Implements RESTful API logic
+    - Handles request/response cycle
+    - Contains business logic for each route
+    - Manages data validation and transformation
 
-1. dependencies:- 
+2. **Database (`src/db/`)**
+    - MongoDB connection setup and configuration
+    - Database indexing and optimization
+    - Connection pooling management
+    - Error handling for database operations
 
-```bash
-    "cookie-parser": "^1.4.7",
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.3",
-    "express": "^5.1.0",
-    "mongoose": "^8.19.1"
-    "mongoose-aggregate-paginate": "^2.0.2"
-    "jsonwebtoken": "^9.0.2"
-    "bcrypt": "^6.0.0"
-```
+3. **Middlewares (`src/middlewares/`)**
+    - JWT authentication middleware
+    - Request validation using express-validator
+    - Error handling middleware
+    - Rate limiting and security middlewares
 
-2. dev-dependencies:-
+4. **Models (`src/models/`)**
+    - Mongoose schema definitions for each entity
+    - Data validation and sanitization rules
+    - Pre/post hooks for data operations
+    - Custom model methods and statics
 
-```bash
-    "nodemon": "^3.1.10",
-    "prettier": "^3.6.2"
-```
+5. **Routes (`src/routes/`)**
+    - API endpoint definitions with versioning (v1, v2)
+    - Route parameter validation
+    - Route grouping by functionality
+    - Authentication route protection
 
-### Need of above mentioned dependencies
+6. **Utils (`src/utils/`)**
+    - Custom error classes
+    - API response handlers
+    - File upload utilities
+    - Common helper functions
+
+### Configuration Files
+
+1. **.env**
+    - Database connection strings
+    - JWT secret keys and expiry times
+    - API keys for third-party services
+    - Environment-specific configurations
+
+2. **.prettierrc & .prettierignore**
+    - Tab width and indentation rules
+    - Line length limitations
+    - Quote style preferences
+    - Files excluded from formatting
+
+3. **app.js**
+    - Express app initialization
+    - Global middleware setup
+    - Error handling configuration
+    - Security headers setup
+
+4. **constants.js**
+    - Status codes and messages
+    - Validation constants
+    - Configuration parameters
+    - System-wide enums
+
+## Dependencies
+
+### Development Dependencies
+
+1. **Nodemon (^3.1.10)**
+    - File watching for automatic server restart
+    - Support for TypeScript and other file types
+    - Custom restart delays and ignore patterns
+    - Integration with environment variables
+
+2. **Prettier (^3.6.2)**
+    - Automatic code formatting
+    - EditorConfig integration
+    - Custom rule configuration
+    - Pre-commit hook support
+
+### Production Dependencies
+
+1. **Express Framework (^5.1.0)**
+    - HTTP server implementation
+    - Middleware pipeline architecture
+    - Static file serving
+    - Router implementation
+    - Error handling middleware
+
+2. **Database Related**
+    - **Mongoose (^8.19.1)**
+        - MongoDB ORM functionality
+        - Schema validation and middleware
+        - Query building and execution
+        - Population and virtual fields
+    - **Mongoose-aggregate-paginate (^2.0.2)**
+        - Cursor-based pagination
+        - Aggregate pipeline support
+        - Custom page size options
+        - Total count calculations
+
+3. **Security Packages**
+    - **Bcrypt (^6.0.0)**
+        - Password hashing with salt rounds
+        - Password comparison functionality
+        - Async/sync operations support
+        - Salt generation utilities
+    - **JsonWebToken (^9.0.2)**
+        - JWT signing and verification
+        - Token expiration handling
+        - Custom payload support
+        - Refresh token implementation
+
+4. **Utility Packages**
+    - **Cookie-parser (^1.4.7)**
+        - HTTP cookie parsing
+        - Signed cookie support
+        - Cookie serialization
+        - Security options configuration
+    - **CORS (^2.8.5)**
+        - Cross-origin request handling
+        - Preflight request support
+        - Custom origin validation
+        - Header control options
+    - **Dotenv (^17.2.3)**
+        - Environment variable loading
+        - Custom path configuration
+        - Variable validation
+        - Multiple environment support
+
+Each package is selected based on security, performance, and maintainability requirements, ensuring robust functionality while following best practices.
