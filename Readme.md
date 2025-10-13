@@ -2,6 +2,8 @@
 
 A comprehensive fullstack social media platform that combines functionalities of popular platforms like `x.com` and `youtube`. The project follows professional-grade architecture and development practices.
 
+ ---
+
 ## Project Architecture
 
 ### Root Directory Structure
@@ -115,6 +117,8 @@ dex-social/
     - Configuration parameters
     - System-wide enums
 
+ ---
+
 ## Dependencies
 
 ### Development Dependencies
@@ -182,3 +186,204 @@ dex-social/
         - Multiple environment support
 
 Each package is selected based on security, performance, and maintainability requirements, ensuring robust functionality while following best practices.
+
+ ---
+
+## Client-Server Model
+
+### Overview
+The client-server model is a distributed application structure that partitions tasks or workloads between service providers (servers) and service requesters (clients). This architecture is fundamental to networked applications, including web applications.
+
+### Components
+
+1. **Client**
+    - The client is the end-user interface that requests services or resources from the server.
+    - Clients can be web browsers, mobile applications, or any other application that communicates with a server.
+    - They initiate requests and wait for responses from the server.
+
+2. **Server**
+    - The server is a powerful machine or application that provides resources, data, or services to clients.
+    - It processes incoming requests, performs necessary actions, and sends back responses.
+    - Servers can host databases, applications, or static files.
+
+### Communication
+- Clients and servers communicate over a network using protocols such as HTTP/HTTPS.
+- The communication is typically request-response based, where the client sends a request and the server returns a response.
+
+### Advantages
+- **Scalability**: Servers can handle multiple client requests simultaneously, allowing for easy scaling.
+- **Centralized Management**: Resources and data can be managed centrally on the server, simplifying updates and maintenance.
+- **Resource Sharing**: Multiple clients can share resources provided by the server, optimizing resource utilization.
+
+### Conclusion
+The client-server model is essential for building efficient and scalable applications. Understanding this architecture helps developers design better systems that can handle user requests effectively.
+
+---
+
+## URL, URI, URN
+
+### Overview
+In web development, understanding the concepts of URL, URI, and URN is crucial for resource identification and access.
+
+### Definitions
+
+1. **URL (Uniform Resource Locator)**
+    - A URL is a specific type of URI that provides the means to access a resource on the internet.
+    - It includes the protocol (e.g., HTTP, HTTPS), domain name, and path to the resource.
+    - Example: `https://www.example.com/path/to/resource`
+
+2. **URI (Uniform Resource Identifier)**
+    - A URI is a string of characters that uniquely identifies a resource.
+    - It can be further classified into URLs and URNs.
+    - Example: `https://www.example.com` (URL) or `urn:isbn:0451450523` (URN)
+
+3. **URN (Uniform Resource Name)**
+    - A URN is a type of URI that names a resource without specifying its location.
+    - It is used for persistent identification of resources.
+    - Example: `urn:isbn:0451450523` identifies a book by its ISBN.
+
+### Conclusion
+Understanding the differences between URL, URI, and URN is essential for effective resource management and access in web applications. Each serves a unique purpose in identifying and locating resources on the internet.
+
+## HTTP Methods
+
+### Overview
+HTTP (Hypertext Transfer Protocol) is the foundation of data communication on the web. It defines a set of request methods that indicate the desired action to be performed on a resource.
+
+### Common HTTP Methods
+
+1. **GET**
+    - **Description**: Retrieves data from a server.
+    - **Use Cases**: Fetching web pages, images, or any other resources.
+    - **Idempotent**: Yes (multiple identical requests have the same effect as a single request).
+
+2. **POST**
+    - **Description**: Sends data to a server to create a new resource.
+    - **Use Cases**: Submitting form data, uploading files.
+    - **Idempotent**: No (multiple identical requests may create multiple resources).
+
+3. **PUT**
+    - **Description**: Updates an existing resource or creates a new resource if it does not exist.
+    - **Use Cases**: Updating user information, replacing a resource.
+    - **Idempotent**: Yes (multiple identical requests result in the same resource state).
+
+4. **PATCH**
+    - **Description**: Partially updates an existing resource.
+    - **Use Cases**: Modifying specific fields of a resource.
+    - **Idempotent**: Yes (multiple identical requests result in the same resource state).
+
+5. **DELETE**
+    - **Description**: Removes a resource from the server.
+    - **Use Cases**: Deleting user accounts, removing items from a list.
+    - **Idempotent**: Yes (deleting the same resource multiple times has the same effect).
+
+6. **HEAD**
+    - **Description**: Similar to GET, but retrieves only the headers of a resource.
+    - **Use Cases**: Checking if a resource exists, retrieving metadata.
+    - **Idempotent**: Yes.
+
+7. **OPTIONS**
+    - **Description**: Describes the communication options for the target resource.
+    - **Use Cases**: Discovering allowed HTTP methods for a resource.
+    - **Idempotent**: Yes.
+
+### Status Codes
+Each HTTP method can return various status codes indicating the result of the request:
+
+- **200 OK**: The request was successful.
+- **201 Created**: A new resource was successfully created (for POST).
+- **204 No Content**: The request was successful, but there is no content to return (for DELETE).
+- **400 Bad Request**: The server could not understand the request due to invalid syntax.
+- **401 Unauthorized**: Authentication is required and has failed or has not yet been provided.
+- **404 Not Found**: The requested resource could not be found.
+- **500 Internal Server Error**: The server encountered an unexpected condition.
+
+**HyperText Transfer Protocol**  
+---
+
+## 🔹 What are HTTP Headers?
+
+**Definition:**  
+Metadata (key-value pairs) sent along with requests and responses.  
+
+**Uses:**  
+- Caching  
+- Authentication  
+- Managing state  
+
+**Notes:**  
+- `X-` prefix headers → Deprecated since 2012  
+
+**Types of Headers:**
+- **Request Headers** → Sent from Client  
+- **Response Headers** → Sent from Server  
+- **Representation Headers** → Define encoding/compression  
+- **Payload Headers** → Contain actual data  
+
+---
+
+## 🔹 Common Headers
+
+| Request / Response | CORS & Security Headers |
+|---------------------|-------------------------|
+| `Accept: application/json` | `Access-Control-Allow-Origin` |
+| `User-Agent` | `Access-Control-Allow-Credentials` |
+| `Authorization` | `Access-Control-Allow-Methods` |
+| `Content-Type` | `Access-Control-Allow-Headers` |
+| `Cookie` | `Cache-Control` |
+|  | `Cross-Origin-Embedder-Policy` |
+|  | `Cross-Origin-Opener-Policy` |
+|  | `Content-Security-Policy` |
+|  | `X-XSS-Protection` |
+
+---
+
+## 🔹 HTTP Methods
+
+Basic set of operations used to interact with a server:
+
+| Method | Description |
+|---------|--------------|
+| **GET** | Retrieve a resource |
+| **HEAD** | Retrieve headers only (no message body) |
+| **OPTIONS** | Find out available operations |
+| **TRACE** | Loopback test (returns the same data) |
+| **DELETE** | Remove a resource |
+| **PUT** | Replace a resource |
+| **POST** | Add or interact with a resource |
+| **PATCH** | Modify part of a resource |
+
+---
+
+## 🔹 HTTP Status Codes
+
+| Category | Description |
+|-----------|--------------|
+| **1xx** | Informational |
+| **2xx** | Success |
+| **3xx** | Redirection |
+| **4xx** | Client Error |
+| **5xx** | Server Error |
+
+**Common Codes:**
+
+| Code | Meaning |
+|------|----------|
+| `100` | Continue |
+| `102` | Processing |
+| `200` | OK |
+| `201` | Created |
+| `202` | Accepted |
+| `307` | Temporary Redirect |
+| `308` | Permanent Redirect |
+| `400` | Bad Request |
+| `401` | Unauthorized |
+| `402` | Payment Required |
+| `404` | Not Found |
+| `500` | Internal Server Error |
+| `507` | Gateway Timeout |
+
+---
+
+### Conclusion
+Understanding HTTP methods is crucial for web development and API design. Each method serves a specific purpose and follows principles of RESTful architecture, ensuring efficient communication between clients and servers.
